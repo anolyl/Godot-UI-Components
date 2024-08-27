@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0y87fh4gdc0f"]
+
+[ext_resource type="PackedScene" uid="uid://k3yvpi366ets" path="res://Assets/Models/blockground.tscn" id="1_s2476"]
+
+[node name="GroundBlock" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_s2476")]

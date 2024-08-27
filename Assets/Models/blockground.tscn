@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://k3yvpi366ets"]
+
+[ext_resource type="PackedScene" uid="uid://cs2kxkfwi71ug" path="res://Assets/Models/block.fbx" id="1_4vaei"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vsvb7"]
+data = PackedVector3Array(0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, -0.5, 0.5, 0.5, -0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, -0.5, 0.5, 0.5, -0.5, 0.5, 0, -0.5, 0.5, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0, 0.5)
+
+[node name="Root Scene" instance=ExtResource("1_4vaei")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RootNode/block" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/block/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_vsvb7")

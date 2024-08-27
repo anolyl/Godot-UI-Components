@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtfbi6762qwaj"]
+
+[ext_resource type="PackedScene" uid="uid://c0y87fh4gdc0f" path="res://Assets/Nodes/objects/groundBlock.tscn" id="2_26w8d"]
+[ext_resource type="PackedScene" uid="uid://don4jrg4buahw" path="res://Assets/Nodes/objects/tree.tscn" id="3_mqwnh"]
+[ext_resource type="PackedScene" uid="uid://cwy00f8wwu4q2" path="res://Assets/Nodes/player.tscn" id="5_4c6um"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ero7w"]
+sky_top_color = Color(0.192157, 0.486275, 0.611765, 1)
+sky_horizon_color = Color(0.689216, 0.803922, 0.881373, 1)
+sky_energy_multiplier = 0.95
+ground_bottom_color = Color(0.564706, 0.729412, 0.913725, 1)
+ground_horizon_color = Color(0.689216, 0.803922, 0.881373, 1)
+
+[sub_resource type="Sky" id="Sky_bc6ku"]
+sky_material = SubResource("ProceduralSkyMaterial_ero7w")
+
+[sub_resource type="Environment" id="Environment_a6rfm"]
+background_mode = 2
+background_energy_multiplier = 0.53
+sky = SubResource("Sky_bc6ku")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_emission = Color(0.470588, 0.74902, 0.85098, 1)
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_detail_spread = 0.784584
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a6rfm")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("5_4c6um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25359, 0)
+
+[node name="GroundBlock" parent="." instance=ExtResource("2_26w8d")]
+transform = Transform3D(400, 0, 0, 0, 1, 0, 0, 0, 400, 0.139983, 0, 0.167165)
+
+[node name="Root Scene" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -6.50285, 0.5, -4.22405)
+
+[node name="Root Scene2" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -13.589, 0.5, 5.72437)
+
+[node name="Root Scene7" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, 0.712473, 0.5, 4.02319)
+
+[node name="Root Scene8" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -1.06893, 0.500001, -8.57229)
+
+[node name="Root Scene9" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -1.27962, 0.500001, 11.9317)
+
+[node name="Root Scene10" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, 1.86566, 0.5, -14.866)
+
+[node name="Root Scene11" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -22.0857, 0.5, 4.57265)
+
+[node name="Root Scene12" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -13.4281, 0.5, 13.3461)
+
+[node name="Root Scene13" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -14.0469, 0.5, -7.20597)
+
+[node name="Root Scene14" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -10.5451, 0.5, -14.1625)
+
+[node name="Root Scene15" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, 6.31284, 0.5, -5.94647)
+
+[node name="Root Scene16" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, 9.59183, 0.5, 7.77204)
+
+[node name="Root Scene4" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -4.58764, 0.500001, -15.6838)
+
+[node name="Root Scene5" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -18.1847, 0.5, -13.1314)
+
+[node name="Root Scene6" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -16.1338, 0.5, -0.229883)
+
+[node name="Root Scene3" parent="." instance=ExtResource("3_mqwnh")]
+transform = Transform3D(6.12856, 0, 0, 0, 6.12856, 0, 0, 0, 6.12856, -6.58904, 0.5, 8.77595)

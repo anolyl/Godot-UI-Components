@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwy00f8wwu4q2"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="1_g8qmq"]
+[ext_resource type="PackedScene" uid="uid://k175qhb70yr3" path="res://Assets/Nodes/ui.tscn" id="1_n8rak"]
+[ext_resource type="Script" path="res://Assets/Scripts/camera.gd" id="2_frjai"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_elsdh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xcs7d"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("MovementJoystick", "ChatBox")]
+script = ExtResource("1_g8qmq")
+MovementJoystick = NodePath("Camera3D/Control/actionbar-screen/Mobile/Joystick")
+ChatBox = NodePath("Camera3D/Control/chat-menu-screen/PC/chatbox")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_elsdh")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.667788, 0)
+light_color = Color(1, 0.788235, 0.494118, 1)
+light_energy = 16.0
+light_indirect_energy = 3.159
+light_volumetric_fog_energy = 0.723
+light_specular = 0.057
+spot_range = 10.876
+spot_attenuation = 0.108095
+spot_angle = 51.22
+spot_angle_attenuation = 1.07177
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("Player", "SpotLight", "MovementJoystick", "ui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55276, 0)
+script = ExtResource("2_frjai")
+Player = NodePath("..")
+SpotLight = NodePath("../MeshInstance3D/SpotLight3D")
+MovementJoystick = NodePath("Control/actionbar-screen/Mobile/Joystick")
+ui = NodePath("Control")
+
+[node name="Control" parent="Camera3D" instance=ExtResource("1_n8rak")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xcs7d")
+
+[editable path="Camera3D/Control"]
+[editable path="Camera3D/Control/actionbar-screen/Mobile/Joystick2"]

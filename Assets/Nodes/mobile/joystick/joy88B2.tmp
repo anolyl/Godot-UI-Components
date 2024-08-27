@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsi5r1ahtmuy5"]
+
+[ext_resource type="Script" path="res://Assets/Nodes/mobile/joystick/joystick.gd" id="1_ec6rm"]
+[ext_resource type="Texture2D" uid="uid://bxv7dsgrpguds" path="res://Assets/Images/joystick/joystick_ring.png" id="2_qoy5y"]
+[ext_resource type="Texture2D" uid="uid://ri7kbcjwx1f1" path="res://Assets/Images/joystick/joystick_knob.png" id="3_4vvpm"]
+[ext_resource type="Script" path="res://Assets/Nodes/mobile/joystick/knob.gd" id="4_ns1ow"]
+
+[node name="Joystick" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -426.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ec6rm")
+
+[node name="ring" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qoy5y")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="knob" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4vvpm")
+expand_mode = 4
+stretch_mode = 4
+script = ExtResource("4_ns1ow")
+deadzone = 5
+maximumLength = 65
+
+[node name="knobButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0.709804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="knobButton" to="knob" method="_on_knob_button_button_down"]
+[connection signal="button_up" from="knobButton" to="knob" method="_on_knob_button_button_up"]

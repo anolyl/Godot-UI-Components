@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwy00f8wwu4q2"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="1_g8qmq"]
+[ext_resource type="PackedScene" uid="uid://k175qhb70yr3" path="res://Assets/Nodes/ui.tscn" id="1_n8rak"]
+[ext_resource type="Script" path="res://Assets/Scripts/camera.gd" id="2_frjai"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_elsdh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5s3rh"]
+
+[sub_resource type="Sky" id="Sky_owquc"]
+sky_material = SubResource("ProceduralSkyMaterial_5s3rh")
+
+[sub_resource type="Environment" id="Environment_4hcuy"]
+background_mode = 2
+background_energy_multiplier = 2.36
+sky = SubResource("Sky_owquc")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_intensity = 7.28
+glow_strength = 0.85
+glow_hdr_threshold = 0.96
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.202
+volumetric_fog_albedo = Color(0.160784, 0.160784, 0.160784, 1)
+volumetric_fog_emission = Color(0.0470588, 0.129412, 0.211765, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 1.52
+volumetric_fog_anisotropy = -0.19
+volumetric_fog_length = 129.13
+volumetric_fog_detail_spread = 3.56762
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xcs7d"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("MovementJoystick")]
+script = ExtResource("1_g8qmq")
+MovementJoystick = NodePath("Camera3D/Control/actionbar-screen/Mobile/Joystick")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_elsdh")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.667788, 0)
+light_color = Color(1, 0.788235, 0.494118, 1)
+light_energy = 16.0
+light_indirect_energy = 3.159
+light_volumetric_fog_energy = 0.723
+light_specular = 0.057
+spot_range = 10.876
+spot_attenuation = 0.108095
+spot_angle = 51.22
+spot_angle_attenuation = 1.07177
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55276, 0)
+script = ExtResource("2_frjai")
+
+[node name="Control" parent="Camera3D" instance=ExtResource("1_n8rak")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera3D"]
+environment = SubResource("Environment_4hcuy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xcs7d")
+
+[editable path="Camera3D/Control"]

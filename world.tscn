@@ -1,0 +1,194 @@
+[gd_scene load_steps=13 format=3 uid="uid://p4uuperjvtx3"]
+
+[ext_resource type="PackedScene" uid="uid://nebe4pk0cvjl" path="res://Assets/Nodes/objects/ground.tscn" id="1_m314d"]
+[ext_resource type="PackedScene" uid="uid://don4jrg4buahw" path="res://Assets/Nodes/objects/tree.tscn" id="2_a82f5"]
+[ext_resource type="PackedScene" uid="uid://cwy00f8wwu4q2" path="res://Assets/Nodes/player.tscn" id="2_ekmjp"]
+[ext_resource type="PackedScene" uid="uid://b5l7tedp3wixm" path="res://Assets/Nodes/objects/column.tscn" id="3_e38j4"]
+[ext_resource type="PackedScene" uid="uid://b360jbp30h8mm" path="res://Assets/Nodes/objects/trophy.tscn" id="4_i5845"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2s5l"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.2, 0.603922, 1, 1)
+emission_energy_multiplier = 2.23
+
+[sub_resource type="SphereMesh" id="SphereMesh_aofwo"]
+material = SubResource("StandardMaterial3D_o2s5l")
+
+[sub_resource type="Curve" id="Curve_2yl25"]
+max_value = 0.05
+_data = [Vector2(0, 0.05), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.05, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_srysf"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_442qf"]
+
+[sub_resource type="Sky" id="Sky_owquc"]
+sky_material = SubResource("ProceduralSkyMaterial_442qf")
+
+[sub_resource type="Environment" id="Environment_u27cx"]
+background_mode = 2
+background_energy_multiplier = 2.36
+sky = SubResource("Sky_owquc")
+ambient_light_energy = 1.58
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_exposure = 0.49
+tonemap_white = 0.55
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_intensity = 7.28
+glow_strength = 0.85
+glow_hdr_threshold = 0.96
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.202
+volumetric_fog_albedo = Color(0.160784, 0.160784, 0.160784, 1)
+volumetric_fog_emission = Color(0.0470588, 0.129412, 0.211765, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 1.52
+volumetric_fog_anisotropy = -0.19
+volumetric_fog_length = 129.13
+volumetric_fog_detail_spread = 3.56762
+adjustment_enabled = true
+adjustment_contrast = 1.06
+adjustment_saturation = 0.75
+
+[node name="World" type="Node3D"]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="ground" parent="World" instance=ExtResource("1_m314d")]
+transform = Transform3D(400, 0, 0, 0, 0.95, 0, 0, 0, 400, 0, 0, 0)
+
+[node name="tree" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 5.89691, 0.475, -3.31906)
+
+[node name="tree2" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 0.474331, 0.475, 9.90036)
+
+[node name="tree3" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -11.8963, 0.474999, 17.8114)
+
+[node name="tree4" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -31.966, 0.474999, 5.60178)
+
+[node name="tree5" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -19.2512, 0.474998, -1.69504)
+
+[node name="tree6" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 8.74876, 0.474998, 3.30496)
+
+[node name="tree7" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -9.47583, 0.474998, -8.07399)
+
+[node name="tree8" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -8.98295, 0.474998, 1.74947)
+
+[node name="tree9" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -7.51152, 0.474998, 9.15458)
+
+[node name="tree10" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -3.01193, 0.475, 17.9732)
+
+[node name="tree11" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -15.1122, 0.475, 10.1034)
+
+[node name="tree12" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -23.1001, 0.475, 5.70203)
+
+[node name="tree13" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -20.0407, 0.475, -13.9586)
+
+[node name="tree14" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 1.95928, 0.475, -12.9586)
+
+[node name="tree15" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 9.91596, 0.475, 12.8122)
+
+[node name="tree16" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -8.48765, 0.475, -20.1548)
+
+[node name="tree17" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 6.12314, 0.475, 19.8497)
+
+[node name="tree18" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -5.01512, 0.475, -14.2453)
+
+[node name="tree19" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -12.3462, 0.475, -13.844)
+
+[node name="tree20" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -16.97, 0.475, -8.15595)
+
+[node name="tree21" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -13.5203, 0.475, -2.23858)
+
+[node name="tree22" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -15.4733, 0.475, 3.71432)
+
+[node name="tree23" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -24.1259, 0.475, -7.03061)
+
+[node name="tree24" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -29.1122, 0.475, -0.39507)
+
+[node name="tree25" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -27.1122, 0.475, 10.6049)
+
+[node name="tree26" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -22.5888, 0.475, 16.4423)
+
+[node name="tree27" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -7.51001, 0.475, 21.8596)
+
+[node name="tree28" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 3.02963, 0.475, 16.0309)
+
+[node name="tree29" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -18.6329, 0.475, 23.5603)
+
+[node name="tree30" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 12.8268, 0.475, -2.50303)
+
+[node name="tree31" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, 8.24362, 0.475, -10.801)
+
+[node name="tree32" parent="World" instance=ExtResource("2_a82f5")]
+transform = Transform3D(2.56165, 0, 0, 0, 2.56165, 0, 0, 0, 2.56165, -0.548203, 0.475, -20.1213)
+
+[node name="column" parent="World" instance=ExtResource("3_e38j4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5341, 0.475, 1.29541)
+
+[node name="trophy" parent="World" instance=ExtResource("4_i5845")]
+transform = Transform3D(0.82895, 0, 0.559323, 0, 1, 0, -0.559323, 0, 0.82895, -30.5282, 1.47392, 1.30527)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05991e-06, 2.0651, 0.00735521)
+amount = 200
+lifetime = 2.38
+preprocess = 0.94
+mesh = SubResource("SphereMesh_aofwo")
+emission_shape = 3
+emission_box_extents = Vector3(50, 10, 50)
+gravity = Vector3(0, -0.055, 0)
+initial_velocity_max = 1.0
+scale_amount_min = 0.0
+scale_amount_max = 0.05
+scale_amount_curve = SubResource("Curve_2yl25")
+color = Color(0.576471, 1, 0.458824, 1)
+hue_variation_min = -0.02
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_srysf")
+
+[node name="Player" parent="." instance=ExtResource("2_ekmjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25359, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u27cx")
